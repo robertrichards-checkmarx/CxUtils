@@ -43,6 +43,7 @@ $targetProjects | %{
     if($repoId){
         $scmSettings = &"support/rest/cxone/getProjectSCMsettings.ps1" $cx1Session $repoId    
         $scmSettings.containerScannerEnabled = $true
+        $scmSettings.scaAutoPrEnabled = $false
 
         #update the scm settings
         $scmSettingsBody = $scmSettings | ConvertTo-Json -Depth 10
